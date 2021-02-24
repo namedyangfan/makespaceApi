@@ -25,4 +25,4 @@ const samplePlan = [
   },
 ];
 
-module.export = { samplePlan };
+module.exports = { samplePlan };

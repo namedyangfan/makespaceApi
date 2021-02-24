@@ -1,9 +1,13 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+
+const { samplePlan } = require('../data/storagePlan')
+
+const router = express.Router();
 
 /* GET all stoage plans. */
-router.get('/', function(req, res, next) {
-  res.send('Welcome Express');
+router.get('/', (req, res, next) => {
+  console.log('samplePlan: ', samplePlan);
+  res.json(samplePlan);
 });
 
 module.exports = router;

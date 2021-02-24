@@ -1,9 +1,11 @@
 const express = require('express');
+
+const {avaliableCity} = require('../data/avaliableCity')
 const router = express.Router();
 
-/* GET home page. */
+/* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('Welcome Express');
+  res.json(avaliableCity);
 });
 
 module.exports = router;
