@@ -4,11 +4,13 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors')
+const swaggerUi = require('swagger-ui-express');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/user');
 const storagePlanRouter = require('./routes/storagePlan');
 const cityRouter = require('./routes/city');
+const swaggerDocument = require('./swagger.json');
 
 const app = express();
 
@@ -23,6 +25,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/storagePlan', storagePlanRouter);
 app.use('/city', cityRouter);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
